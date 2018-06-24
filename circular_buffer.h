@@ -272,11 +272,11 @@ public:
     }
 
     friend void swap (circular_buffer<T>& lhs, circular_buffer<T>& rhs) noexcept {
-        std::swap(lhs.buffer, rhs.buffer);
         std::swap(lhs.buffer_size, rhs.buffer_size);
-        std::swap(lhs.head, rhs.head);
-        std::swap(lhs.tail, rhs.tail);
         std::swap(lhs.buffer_cap, rhs.buffer_cap);
+        std::swap(lhs.buffer, rhs.buffer);
+        std::swap(lhs.tail, rhs.tail);
+        std::swap(lhs.head, rhs.head);
     };
 
     void push_back(T const& value) {
