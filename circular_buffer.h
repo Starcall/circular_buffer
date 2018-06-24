@@ -333,7 +333,7 @@ public:
     iterator erase(const_iterator ci_pos) {
         size_t pos = static_cast<size_t> (ci_pos - begin());
         if (pos >= buffer_size - pos) {
-            if (buffer_size > 1) {
+            if (buffer_size) {
                 for (size_t i = pos; i < buffer_size - 1; ++i) {
                     (*this)[i] = (*this)[next(i)];
                 }
@@ -346,9 +346,9 @@ public:
             pop_front();
         }
         pos += head;
-        if (pos >= buffer_cap) {
+        if (pos >= buffer_cap)
             pos -= buffer_cap;
-        }
+
         return iterator(buffer + pos, pos, head, buffer_cap);
     };
 };
